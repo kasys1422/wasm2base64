@@ -8,4 +8,4 @@ Tools for compressing WebAssembly and converting it to Base64.
 ## Sample
 ### [here](https://kasys1422.github.io/wasm2base64/)
 ## License
-MIT License
+[MIT License](https://github.com/kasys1422/wasm2base64/blob/main/LICENSE)
