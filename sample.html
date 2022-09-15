@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <script defer src="./wasm2base64decode.js"></script>
+        <script defer src="./sample.js"></script>
+    </head>
+    <body>
+        <h4></h4>code(base64)
+        <input type="text" id="text" accept=".wasm" value="Y0gszmVkYGBg5GBKYKxnSGBgYJJkZM/MLcgvKinmhdCpKfFppXnJDAzMTIyM7IKMvKkVyMKMXByMbAyOWgIM3AA=" style="width: 100%;"><br>
+        compress
+        <select id="compress">
+            <option value="">none</option>
+            <option value="gzip">gzip</option>
+            <option value="deflate">deflate</option>
+            <option value="deflate-raw" selected>deflate-raw</option>
+        </select><br><br>
+        <input type="button" value="Run" id="Run" onclick="Run_A()"> *Open the console to see the results <br><br>
+        In the sample, <a href="https://github.com/mdn/webassembly-examples/blob/master/other-examples/simple.wasm">this file</a> is converted and used. <br><br>
+        <a href="./index.html">back to encoder</a>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="./wasm2base64encode.js"></script>
+    </head>
+    <body>
+        <h1>Wasm2Base64</h1>
+        <h4>[choose ".wasm" file]</h4>
+        <input type="file" id="file_picker" accept=".wasm"><br>
+        compress
+        <select id="compress">
+            <option value="">none</option>
+            <option value="gzip">gzip</option>
+            <option value="deflate">deflate</option>
+            <option value="deflate-raw">deflate-raw</option>
+        </select><br><br>
+        <input type="button" value=encode id="encode" onclick="Run()"><br><br>
+        <h4>[result]</h4>
+        <textarea name="kansou" id="result" style="width: 100%; height: 500;"></textarea><br>
+        <a href="./sample.html">sample</a>
+        <script>
+            function Run(){
+                let elm = document.getElementById("file_picker");
+                if (elm.files.length <= 0)return;
+                const file = elm.files[0];
+                const reader = new FileReader();
+                reader.addEventListener('load', event => {
+                    const bytes = new Uint8Array(event.target.result);
+                    wasmBinaryArray2Base64(bytes, document.getElementById('compress').value).then(function(result) {
+                        document.getElementById('result').value = result;
+                    });
+                });
+                reader.readAsArrayBuffer(file);
+            }
+        </script>
+    </body>
+</html>
